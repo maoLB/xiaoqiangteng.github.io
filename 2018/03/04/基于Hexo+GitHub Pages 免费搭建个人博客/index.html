@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/04/基于Hexo+GitHub Pages 免费搭建个人博客/index.html">
 <meta property="og:site_name" content="Mapstec">
 <meta property="og:description" content="一、Hexo简介Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客的首选框架。这里我们选用的是GitHub。Hexo同时也是GitHub上的开源项目，参见：hexojs/hexo 如果想要更加全面的了解Hexo，可以到其官网 Hexo 了解更多的细节，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文">
-<meta property="og:updated_time" content="2018-03-04T07:20:25.000Z">
+<meta property="og:updated_time" content="2018-03-04T07:31:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="免费搭建个人博客">
 <meta name="twitter:description" content="一、Hexo简介Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客的首选框架。这里我们选用的是GitHub。Hexo同时也是GitHub上的开源项目，参见：hexojs/hexo 如果想要更加全面的了解Hexo，可以到其官网 Hexo 了解更多的细节，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文">
@@ -421,12 +421,21 @@
 </li>
 </ol>
 <pre><code>你也可以在自己的博文中添加\&lt;!--more--&gt;来决定在首页展示到什么位置（我就喜欢用这种方式），这个标签后的内容就不会展示到首页啦。
-</code></pre>
+</code></pre><h2 id="修改文章内链接文本样式"><a href="#修改文章内链接文本样式" class="headerlink" title="修改文章内链接文本样式"></a>修改文章内链接文本样式</h2><p>修改文件 themes\next\source\css_common\components\post\post.styl，在末尾添加如下css样式，：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 文章内链接文本样式</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">p</span> <span class="selector-tag">a</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#0593d3</span>;</span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span>;</span><br><span class="line">    <span class="selector-tag">border-bottom</span>: <span class="selector-tag">none</span>;</span><br><span class="line">    <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#fc6423</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中选择.post-body 是为了不影响标题，选择 p 是为了不影响首页“阅读全文”的显示样式,颜色可以自己定义。</p>
+<h2 id="在每篇文章末尾统一添加“本文结束”标记"><a href="#在每篇文章末尾统一添加“本文结束”标记" class="headerlink" title="在每篇文章末尾统一添加“本文结束”标记"></a>在每篇文章末尾统一添加“本文结束”标记</h2>
       
     </div>
     
     
     
+
+    <div>
+      
+        
+      
+    </div>
 
     
 
@@ -567,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Hexo简介"><span class="nav-number">1.</span> <span class="nav-text">一、Hexo简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建步骤"><span class="nav-number">2.</span> <span class="nav-text">搭建步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、环境配置"><span class="nav-number">3.</span> <span class="nav-text">三、环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-本机环境配置"><span class="nav-number">3.1.</span> <span class="nav-text">1. 本机环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-git环境配置"><span class="nav-number">3.2.</span> <span class="nav-text">2. git环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-同步本地博客到Github"><span class="nav-number">3.3.</span> <span class="nav-text">3. 同步本地博客到Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置专属域名"><span class="nav-number">3.4.</span> <span class="nav-text">设置专属域名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、Hexo配置"><span class="nav-number">4.</span> <span class="nav-text">四、Hexo配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题设置"><span class="nav-number">4.1.</span> <span class="nav-text">主题设置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Hexo简介"><span class="nav-number">1.</span> <span class="nav-text">一、Hexo简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建步骤"><span class="nav-number">2.</span> <span class="nav-text">搭建步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、环境配置"><span class="nav-number">3.</span> <span class="nav-text">三、环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-本机环境配置"><span class="nav-number">3.1.</span> <span class="nav-text">1. 本机环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-git环境配置"><span class="nav-number">3.2.</span> <span class="nav-text">2. git环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-同步本地博客到Github"><span class="nav-number">3.3.</span> <span class="nav-text">3. 同步本地博客到Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置专属域名"><span class="nav-number">3.4.</span> <span class="nav-text">设置专属域名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、Hexo配置"><span class="nav-number">4.</span> <span class="nav-text">四、Hexo配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题设置"><span class="nav-number">4.1.</span> <span class="nav-text">主题设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文章内链接文本样式"><span class="nav-number">4.2.</span> <span class="nav-text">修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在每篇文章末尾统一添加“本文结束”标记"><span class="nav-number">4.3.</span> <span class="nav-text">在每篇文章末尾统一添加“本文结束”标记</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -587,7 +596,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -596,6 +607,13 @@
   
 </div>
 
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
 
   <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
