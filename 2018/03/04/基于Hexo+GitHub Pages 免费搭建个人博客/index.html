@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/04/基于Hexo+GitHub Pages 免费搭建个人博客/index.html">
 <meta property="og:site_name" content="Mapstec">
 <meta property="og:description" content="一、Hexo简介Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客的首选框架。这里我们选用的是GitHub。Hexo同时也是GitHub上的开源项目，参见：hexojs/hexo 如果想要更加全面的了解Hexo，可以到其官网 Hexo 了解更多的细节，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文">
-<meta property="og:updated_time" content="2018-03-04T06:35:35.000Z">
+<meta property="og:updated_time" content="2018-03-04T06:37:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="免费搭建个人博客">
 <meta name="twitter:description" content="一、Hexo简介Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客的首选框架。这里我们选用的是GitHub。Hexo同时也是GitHub上的开源项目，参见：hexojs/hexo 如果想要更加全面的了解Hexo，可以到其官网 Hexo 了解更多的细节，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文">
@@ -303,56 +303,56 @@
 <li><p>本机环境配置 </p>
 <p> 1）安装Node.js：下载<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a>,注意安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v. 检测npm是否安装成功，在命令行中输入npm -v</p>
 <p> 2) 安装Hexo:</p>
-<p> Hexo就是我们的个人博客网站的框架， 这里需要自己在电脑常里创建一个文件夹，可以命名为Blog，Hexo框架与以后你自己发布的网页都在这个文件夹中。创建好后，进入文件夹中,使用npm命令安装Hexo，输入：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo <span class="comment">#等待一会就会完成下载安装。</span></span><br><span class="line">hexo init <span class="comment">#该命令会在目标文件夹内建立网站所需要的所有文件</span></span><br><span class="line">npm install <span class="comment">#安装依赖包</span></span><br></pre></td></tr></table></figure>
+<pre><code>Hexo就是我们的个人博客网站的框架， 这里需要自己在电脑常里创建一个文件夹，可以命名为Blog，Hexo框架与以后你自己发布的网页都在这个文件夹中。创建好后，进入文件夹中,使用npm命令安装Hexo，输入：
+</code></pre> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo <span class="comment">#等待一会就会完成下载安装。</span></span><br><span class="line">hexo init <span class="comment">#该命令会在目标文件夹内建立网站所需要的所有文件</span></span><br><span class="line">npm install <span class="comment">#安装依赖包</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<pre><code>到这里本地博客就搭建好了。执行以下命令（在你博客的对应文件夹路径下）:
+<pre><code>    到这里本地博客就搭建好了。执行以下命令（在你博客的对应文件夹路径下）:
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate <span class="comment"># Or hexo g</span></span><br><span class="line">hexo server   <span class="comment"># Or hexo s</span></span><br></pre></td></tr></table></figure>
 
-在浏览器输入http://localhost:4000/ 就可以进行查看了。当然这个博客是本地的，别人是无法访问的，之后我们需要部署到GitHub上。
+    在浏览器输入http://localhost:4000/ 就可以进行查看了。当然这个博客是本地的，别人是无法访问的，之后我们需要部署到GitHub上。
 
-常用的Hexo 命令:
+    常用的Hexo 命令:
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g <span class="comment">#安装Hexo</span></span><br><span class="line">npm update hexo -g <span class="comment">#升级</span></span><br><span class="line">hexo init <span class="comment">#初始化博客</span></span><br><span class="line"><span class="comment"># 命令简写</span></span><br><span class="line">hexo n <span class="string">"我的博客"</span> == hexo new <span class="string">"我的博客"</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo g == hexo generate <span class="comment">#生成</span></span><br><span class="line">hexo s == hexo server <span class="comment">#启动服务预览</span></span><br><span class="line">hexo d == hexo deploy <span class="comment">#部署</span></span><br><span class="line">hexo server <span class="comment">#Hexo会监视文件变动并自动更新，无须重启服务器</span></span><br><span class="line">hexo server -s <span class="comment">#静态模式</span></span><br><span class="line">hexo server -p 5000 <span class="comment">#更改端口</span></span><br><span class="line">hexo server -i 192.168.1.1 <span class="comment">#自定义 IP</span></span><br><span class="line">hexo clean <span class="comment">#清除缓存，若是网页正常情况下可以忽略这条命令</span></span><br></pre></td></tr></table></figure>
 </code></pre><ol>
 <li><p>git环境配置</p>
 <p> 1）注册Github账号并新建仓库</p>
-<p> 注册过程就不多说了，注册完成之后需要新建一个仓库。需要注意的是新创建的仓库的名字，必须是username.github.io。例如我的username是XXX，那么新创建的仓库的名字便是XXX.github.io。</p>
-<p> 2）配置SSH Key</p>
-<p> 这一步不是必须的，配置SSH Key的话之后每次更新博客就不用都输入用户名和密码，可以方便一些。</p>
-<p> (1)检查本机上是否已经存在SSH Key。打开终端，输入如下命令：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">ls -la</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>注册过程就不多说了，注册完成之后需要新建一个仓库。需要注意的是新创建的仓库的名字，必须是username.github.io。例如我的username是XXX，那么新创建的仓库的名字便是XXX.github.io。
+</code></pre><p> 2）配置SSH Key</p>
+<pre><code>这一步不是必须的，配置SSH Key的话之后每次更新博客就不用都输入用户名和密码，可以方便一些。
+</code></pre><p> (1)检查本机上是否已经存在SSH Key。打开终端，输入如下命令：</p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">ls -la</span><br></pre></td></tr></table></figure>
+</code></pre></li>
 </ol>
-<pre><code>检查终端输出的文件列表中是否已经存在id_rsa.pub 或 id_dsa.pub 文件，如果文件已经存在，则直接进入第三步。
+<pre><code>    检查终端输出的文件列表中是否已经存在id_rsa.pub 或 id_dsa.pub 文件，如果文件已经存在，则直接进入第三步。
 
 (2)创建一个SSH Key。在终端输入如下命令:
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></span><br></pre></td></tr></table></figure>
+    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></span><br></pre></td></tr></table></figure>
 
-按下回车，让你输入文件名，直接回车会创建使用默认文件名的文件(推荐使用默认文件名)，然后会提示你输入两次密码，可以为空。
+    按下回车，让你输入文件名，直接回车会创建使用默认文件名的文件(推荐使用默认文件名)，然后会提示你输入两次密码，可以为空。
 
 (3)添加SSH Key到Github
 
-如果你没有指定文件名（也就是使用的默认文件名），那么你的.ssh文件夹下，应该有一个id_rsa.pub文件了，打开该文件，复制里面的文本。然后登录Github，点击右上角头像右边的三角图标，点击Settings，然后在左边菜单栏点击SSH and GPG keys，点击New SSH key，Title 随便填一个，在Key栏填入你复制的内容，点击Add SSH key，就添加成功了。
+    如果你没有指定文件名（也就是使用的默认文件名），那么你的.ssh文件夹下，应该有一个id_rsa.pub文件了，打开该文件，复制里面的文本。然后登录Github，点击右上角头像右边的三角图标，点击Settings，然后在左边菜单栏点击SSH and GPG keys，点击New SSH key，Title 随便填一个，在Key栏填入你复制的内容，点击Add SSH key，就添加成功了。
 
 (4)检验SSH Key是否配置成功。在终端输入如下命令:
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 
 
-如果出现:
+    如果出现:
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Are you sure you want to <span class="built_in">continue</span> connecting (yes/no)?</span><br></pre></td></tr></table></figure>
+    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Are you sure you want to <span class="built_in">continue</span> connecting (yes/no)?</span><br></pre></td></tr></table></figure>
 
 
-请输入yes再按回车。如果最后出现:
+    请输入yes再按回车。如果最后出现:
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
+    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
 
-就说明你的SSH Key配置成功了。
+    就说明你的SSH Key配置成功了。
 </code></pre><ol>
 <li><p>同步本地博客到Github</p>
 <p> 1) 上面只是在本地预览，接下来要做的就是就是推送网站，也就是发布网站，让我们的网站可以被更多的人访问。在设置之前，需要解释一个概念，在blog根目录里的_config.yml文件称为站点配置文件.</p>
