@@ -1451,7 +1451,10 @@ LOG(INFO) &lt;&lt; &quot;Found &quot; &lt;&lt; num_cookies &lt;&lt; &quot; cooki
       
         
           
-          Ubuntu16.04 cuda8.0 GPU驱动配置GPU驱动配置根据GPU型号从相应网站下载驱动，例如使用NVIDIA Tesla M60，从NVIDIA网站选择对应的型号和操作系统，CUDA Toolkit版本，下载驱动文件，如NVIDIA-Linux-x86_64-375.66.run，运行
+          Ubuntu16.04 cuda8.0 GPU驱动配置检查是否正确识别显卡1lspci | grep -i nvidia
+查看是否已有安装的NVIDIA驱动1lsmod | grep nvidia
+查看集显驱动1lsmod | grep nouveau
+关闭桌面服务1sudo service lig
           ...
           <!--noindex-->
           <div class="post-button text-center">
