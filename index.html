@@ -1451,10 +1451,11 @@ LOG(INFO) &lt;&lt; &quot;Found &quot; &lt;&lt; num_cookies &lt;&lt; &quot; cooki
       
         
           
-          Ubuntu16.04 cuda8.0 GPU驱动配置检查是否正确识别显卡1lspci | grep -i nvidia
-查看是否已有安装的NVIDIA驱动1lsmod | grep nvidia
-查看集显驱动1lsmod | grep nouveau
-关闭桌面服务1sudo service lig
+          Ubuntu16.04 cuda8.0 GPU驱动配置更换阿里源更换之前要先备份之前的源：
+1sudo cp /etc/apt/source.list /etc/apt/source.list.bak
+编辑源列表文件:
+1sudo vim/etc/apt/sources.list
+原来的列表删除，替
           ...
           <!--noindex-->
           <div class="post-button text-center">
