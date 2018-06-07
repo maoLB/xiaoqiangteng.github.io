@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[UJI_LIB_DB数据集介绍]]></title>
+    <url>%2F2018%2F06%2F07%2FUJI-LIB-DB%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[UJI_LIB_DB介绍论文出处 Mendoza-Silva, Germán Martín, Richter, Philipp, Torres-Sospedra, Joaquín, Lohan, Elena Simona, &amp; Huerta, Joaquín. (2017). Long-Term Wi-Fi fingerprinting dataset and supporting material (Version V1) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.1066041 详细介绍1234567891011时间跨度： 15个月采集点数： 63504采集地点： 大学图书馆（3楼和5楼）AP放置位置： 天花板AP放置高度： 2.65米具体位置： 详见数据集AP数量： 448采集人员数量：1名采集方式： 右手放至胸前，每个采样点采集6个数据采集设备： Samsung Galaxy S3采集软件： 自研 采集方法参考 http://www3.uji.es/~jtorres/databases.html https://zenodo.org/record/1066041#.WxjzeVOFPq0]]></content>
+      <categories>
+        <category>编程</category>
+        <category>数据集</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>数据集</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mac/Linux-Shell-批量重命名的方法总览]]></title>
     <url>%2F2018%2F06%2F05%2FMac-Linux-Shell-%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%E7%9A%84%E6%96%B9%E6%B3%95%E6%80%BB%E8%A7%88%2F</url>
     <content type="text"><![CDATA[删除所有的 .bak 后缀1rename 's/\.bak$//' *.bak 把 .JPEG 文件后缀修改为 .jpg1rename 's/\.JPEG$/\.jpg/' *.JPEG 把所有文件的文件名改为小写1rename 'y/A-Z/a-z/' * 将 abcd.jpg 重命名为 abcd_efg.jpg1for var in *.jpg; do mv "$var" "$&#123;var%.jpg&#125;_efg.jpg"; done 将 abcd_efg.jpg 重命名为 abcd_lmn.jpg1for var in *.jpg; do mv "$var" "$&#123;var%_efg.jpg&#125;_lmn.jpg"; done 把文件名中所有小写字母改为大写字母1for var in `ls`; do mv -f "$var" `echo "$var" |tr a-z A-Z`; done 把格式 *_?.jpg 的文件改为 *_0?.jpg1for var in `ls *_?.jpg`; do mv "$var" `echo "$var" |awk -F '_' '&#123;print $1 "_0" $2&#125;'`; done 把文件名的后四个字母变为 vzomik1for var in `ls`; do mv -f "$var" `echo "$var" |sed 's/....$/vzomik/'`; done 把.txt变成.txt_bak 的后缀123456ls *.txt|xargs -n1 -i&#123;&#125; mv &#123;&#125; &#123;&#125;_bak# xargs -n1 –i&#123;&#125; 类似for循环，-n1意思是一个一个对象的去处理，-i&#123;&#125; 把前面的对象使用&#123;&#125;取代，mv &#123;&#125; &#123;&#125;_bak 相当于 mv 1.txt 1.txt_bak$ find ./*.txt -exec mv &#123;&#125; &#123;&#125;_bak \; # 这个命令中也是把&#123;&#125;作为前面find出来的文件的替代符，后面的”\”为”;”的脱意符，不然shell会把分号作为该行命令的结尾. 批量替换文件名12345678910#!/bin/basholdext="JPG"newext="jpg"dir=$(eval pwd)for file in $(ls $dir | grep .$oldext) do name=$(ls $file | cut -d. -f1) mv $file $&#123;name&#125;.$newext doneecho "change JPG=====&gt;jpg done!" 1.变量oldext和newext分别指定旧的扩展名和新的扩展名。dir指定文件所在目录； 2.“ls $dir | grep .$oldext”用来在指定目录dir中获取扩展名为旧扩展名的所有文件； 3.在循环体内先利用cut命令将文件名中“.”之前的字符串剪切出来，并赋值给name变量；接着将当前的文件名重命名为新的文件名。 通过这个脚本，所有照片的扩展名都成功修改。为了使这个脚本更具有通用型，我们可以增加几条read命令实现脚本和用户之间的交互。改进版的脚本如下： 123456789101112#!/bin/bashread -p "old extension:" oldextread -p "new extension:" newextread -p "The directory:" dircd $dirfor file in $(ls $dir | grep .$oldext) do name=$(ls $file | cut -d. -f1) mv $file $&#123;name&#125;.$newext echo "$name.$oldext ====&gt; $name.$newext" doneecho "all files has been modified." 修改后的脚本可以批量修改任意扩展名。 参考 http://edsionte.com/techblog/archives/category/shell%e7%bc%96%e7%a8%8b https://my.oschina.net/musings/blog/380939]]></content>
