@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Mapstec">
 <meta property="og:description" content="VIM简单配置VIM高级配置VIM简单命令VIM模式Normal 模式、Insert 模式、 用户刚刚启动 vi/vim，便进入了命令模式。此状态下敲击键盘动作会被Vim识别为命令，而非输入字符。比如我们此时按下i，并不会输入一个字符，i被当作了一个命令。以下是常用的几个命令： 123i 切换到输入模式，以输入字符。x 删除当前光标所在处的字符。: 切换到底线命令模式，以在最底一行输入命令。 输入">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-13T01:43:40.000Z">
+<meta property="og:updated_time" content="2018-06-13T08:07:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim教程">
 <meta name="twitter:description" content="VIM简单配置VIM高级配置VIM简单命令VIM模式Normal 模式、Insert 模式、 用户刚刚启动 vi/vim，便进入了命令模式。此状态下敲击键盘动作会被Vim识别为命令，而非输入字符。比如我们此时按下i，并不会输入一个字符，i被当作了一个命令。以下是常用的几个命令： 123i 切换到输入模式，以输入字符。x 删除当前光标所在处的字符。: 切换到底线命令模式，以在最底一行输入命令。 输入">
@@ -420,7 +420,7 @@
 <p>使用 vi/vim 进入一般模式:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi runoob.txt</span><br></pre></td></tr></table></figure>
 <p>直接输入 vi 文件名 就能够进入 vi 的一般模式了。请注意，记得 vi 后面一定要加文件名，不管该文件存在与否！</p>
-<h2 id="第一部份：一般模式可用的光标移动、复制粘贴、搜索替换"><a href="#第一部份：一般模式可用的光标移动、复制粘贴、搜索替换" class="headerlink" title="第一部份：一般模式可用的光标移动、复制粘贴、搜索替换"></a>第一部份：一般模式可用的光标移动、复制粘贴、搜索替换</h2><table>
+<h2 id="第一部份一般模式可用的光标移动、复制粘贴、搜索替换"><a href="#第一部份一般模式可用的光标移动、复制粘贴、搜索替换" class="headerlink" title="第一部份一般模式可用的光标移动、复制粘贴、搜索替换"></a>第一部份一般模式可用的光标移动、复制粘贴、搜索替换</h2><table>
 <thead>
 <tr>
 <th>移动光标的方法</th>
@@ -447,6 +447,329 @@
 </tbody>
 </table>
 <p>如果你将右手放在键盘上的话，你会发现 hjkl 是排列在一起的，因此可以使用这四个按钮来移动光标。 如果想要进行多次移动的话，例如向下移动 30 行，可以使用 “30j” 或 “30↓” 的组合按键， 亦即加上想要进行的次数(数字)后，按下动作即可！</p>
+<table>
+<thead>
+<tr>
+<th>移动光标的方法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Ctrl] + [f]</td>
+<td>屏幕『向下』移动一页，相当于 [Page Down]按键 (常用)</td>
+</tr>
+<tr>
+<td>[Ctrl] + [b]</td>
+<td>屏幕『向上』移动一页，相当于 [Page Up] 按键 (常用)</td>
+</tr>
+<tr>
+<td>[Ctrl] + [d]</td>
+<td>屏幕『向下』移动半页</td>
+</tr>
+<tr>
+<td>[Ctrl] + [u]</td>
+<td>屏幕『向上』移动半页</td>
+</tr>
+<tr>
+<td>+</td>
+<td>光标移动到非空格符的下一行</td>
+</tr>
+<tr>
+<td>-</td>
+<td>光标移动到非空格符的上一行</td>
+</tr>
+<tr>
+<td>n<space></space></td>
+<td>那个 n 表示『数字』，例如 20 。按下数字后再按空格键，光标会向右移动这一行的 n 个字符。例如 20<space> 则光标会向后面移动 20 个字符距离。</space></td>
+</tr>
+<tr>
+<td>0 或功能键[Home]</td>
+<td>这是数字『 0 』：移动到这一行的最前面字符处 (常用)</td>
+</tr>
+<tr>
+<td>\$ 或功能键[End]</td>
+<td>移动到这一行的最后面字符处(常用)</td>
+</tr>
+<tr>
+<td>H</td>
+<td>光标移动到这个屏幕的最上方那一行的第一个字符</td>
+</tr>
+<tr>
+<td>M</td>
+<td>光标移动到这个屏幕的中央那一行的第一个字符</td>
+</tr>
+<tr>
+<td>L</td>
+<td>光标移动到这个屏幕的最下方那一行的第一个字符</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动到这个档案的最后一行(常用)</td>
+</tr>
+<tr>
+<td>nG</td>
+<td>n 为数字。移动到这个档案的第 n 行。例如 20G 则会移动到这个档案的第 20 行(可配合 :set nu)</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>移动到这个档案的第一行，相当于 1G 啊！ (常用)</td>
+</tr>
+<tr>
+<td>n<enter></enter></td>
+<td>n 为数字。光标向下移动 n 行(常用)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>搜索替换</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/word</td>
+<td>向光标之下寻找一个名称为 word 的字符串。例如要在档案内搜寻 vbird 这个字符串，就输入 /vbird 即可！ (常用)</td>
+</tr>
+<tr>
+<td>?word</td>
+<td>向光标之上寻找一个字符串名称为 word 的字符串。</td>
+</tr>
+<tr>
+<td>n</td>
+<td>这个 n 是英文按键。代表重复前一个搜寻的动作。举例来说， 如果刚刚我们执行 /vbird 去向下搜寻 vbird 这个字符串，则按下 n 后，会向下继续搜寻下一个名称为 vbird 的字符串。如果是执行 ?vbird 的话，那么按下 n 则会向上继续搜寻名称为 vbird 的字符串！</td>
+</tr>
+<tr>
+<td>N</td>
+<td>这个 N 是英文按键。与 n 刚好相反，为『反向』进行前一个搜寻动作。 例如 /vbird 后，按下 N 则表示『向上』搜寻 vbird 。</td>
+</tr>
+<tr>
+<td>:n1,n2s/word1/word2/g</td>
+<td>n1 与 n2 为数字。在第 n1 与 n2 行之间寻找 word1 这个字符串，并将该字符串取代为 word2 ！举例来说，在 100 到 200 行之间搜寻 vbird 并取代为 VBIRD 则：『:100,200s/vbird/VBIRD/g』。(常用)</td>
+</tr>
+<tr>
+<td>:1,\$s/word1/word2/g</td>
+<td>从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！(常用)</td>
+</tr>
+<tr>
+<td>:1,\$s/word1/word2/gc</td>
+<td>从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！且在取代前显示提示字符给用户确认 (confirm) 是否需要取代！(常用)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>删除、复制与贴上</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x, X</td>
+<td>在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)， X 为向前删除一个字符(相当于 [backspace] 亦即是退格键) (常用)</td>
+</tr>
+<tr>
+<td>nx</td>
+<td>n 为数字，连续向后删除 n 个字符。举例来说，我要连续删除 10 个字符， 『10x』。</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>删除游标所在的那一整行(常用)</td>
+</tr>
+<tr>
+<td>ndd</td>
+<td>n 为数字。删除光标所在的向下 n 行，例如 20dd 则是删除 20 行 (常用)</td>
+</tr>
+<tr>
+<td>d1G</td>
+<td>删除光标所在到第一行的所有数据</td>
+</tr>
+<tr>
+<td>dG</td>
+<td>删除光标所在到最后一行的所有数据</td>
+</tr>
+<tr>
+<td>d\$</td>
+<td>删除游标所在处，到该行的最后一个字符</td>
+</tr>
+<tr>
+<td>d0</td>
+<td>那个是数字的 0 ，删除游标所在处，到该行的最前面一个字符</td>
+</tr>
+<tr>
+<td>yy</td>
+<td>复制游标所在的那一行(常用)</td>
+</tr>
+<tr>
+<td>nyy</td>
+<td>n 为数字。复制光标所在的向下 n 行，例如 20yy 则是复制 20 行(常用)</td>
+</tr>
+<tr>
+<td>y1G</td>
+<td>复制游标所在行到第一行的所有数据</td>
+</tr>
+<tr>
+<td>yG</td>
+<td>复制游标所在行到最后一行的所有数据</td>
+</tr>
+<tr>
+<td>y0</td>
+<td>复制光标所在的那个字符到该行行首的所有数据</td>
+</tr>
+<tr>
+<td>y$</td>
+<td>复制光标所在的那个字符到该行行尾的所有数据</td>
+</tr>
+<tr>
+<td>p, P</td>
+<td>p 为将已复制的数据在光标下一行贴上，P 则为贴在游标上一行！ 举例来说，我目前光标在第 20 行，且已经复制了 10 行数据。则按下 p 后， 那 10 行数据会贴在原本的 20 行之后，亦即由 21 行开始贴。但如果是按下 P 呢？ 那么原本的第 20 行会被推到变成 30 行。 (常用)</td>
+</tr>
+<tr>
+<td>J</td>
+<td>将光标所在行与下一行的数据结合成同一行</td>
+</tr>
+<tr>
+<td>c</td>
+<td>重复删除多个数据，例如向下删除 10 行，[ 10cj ]</td>
+</tr>
+<tr>
+<td>u</td>
+<td>复原前一个动作。(常用)</td>
+</tr>
+<tr>
+<td>[Ctrl]+r</td>
+<td>重做上一个动作。(常用)</td>
+</tr>
+<tr>
+<td>.</td>
+<td>不要怀疑！这就是小数点！意思是重复前一个动作的意思。 如果你想要重复删除、重复贴上等等动作，按下小数点『.』就好了！ (常用)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="第二部份：一般模式切换到编辑模式的可用的按钮说明"><a href="#第二部份：一般模式切换到编辑模式的可用的按钮说明" class="headerlink" title="第二部份：一般模式切换到编辑模式的可用的按钮说明"></a>第二部份：一般模式切换到编辑模式的可用的按钮说明</h2><table>
+<thead>
+<tr>
+<th>进入输入或取代的编辑模式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i, I</td>
+<td>进入输入模式(Insert mode)：i 为『从目前光标所在处输入』， I 为『在目前所在行的第一个非空格符处开始输入』。 (常用)</td>
+</tr>
+<tr>
+<td>a, A</td>
+<td>进入输入模式(Insert mode)：a 为『从目前光标所在的下一个字符处开始输入』， A 为『从光标所在行的最后一个字符处开始输入』。(常用)</td>
+</tr>
+<tr>
+<td>o, O</td>
+<td>进入输入模式(Insert mode)：这是英文字母 o 的大小写。o 为『在目前光标所在的下一行处输入新的一行』； O 为在目前光标所在处的上一行输入新的一行！(常用)</td>
+</tr>
+<tr>
+<td>r, R</td>
+<td>进入取代模式(Replace mode)：r 只会取代光标所在的那一个字符一次；R会一直取代光标所在的文字，直到按下 ESC 为止；(常用)</td>
+</tr>
+<tr>
+<td>[Esc]</td>
+<td>退出编辑模式，回到一般模式中(常用)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="第三部份：一般模式切换到指令行模式的可用的按钮说明"><a href="#第三部份：一般模式切换到指令行模式的可用的按钮说明" class="headerlink" title="第三部份：一般模式切换到指令行模式的可用的按钮说明"></a>第三部份：一般模式切换到指令行模式的可用的按钮说明</h2><table>
+<thead>
+<tr>
+<th>指令行的储存、离开等指令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:w</td>
+<td>将编辑的数据写入硬盘档案中(常用)</td>
+</tr>
+<tr>
+<td>:w!</td>
+<td>若文件属性为『只读』时，强制写入该档案。不过，到底能不能写入， 还是跟你对该档案的档案权限有关啊！</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>离开 vi (常用)</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>若曾修改过档案，又不想储存，使用 ! 为强制离开不储存档案。</td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>储存后离开，若为 :wq! 则为强制储存后离开 (常用)</td>
+</tr>
+<tr>
+<td>ZZ</td>
+<td>这是大写的 Z 喔！若档案没有更动，则不储存离开，若档案已经被更动过，则储存后离开！</td>
+</tr>
+<tr>
+<td>:w [filename]</td>
+<td>将编辑的数据储存成另一个档案（类似另存新档）</td>
+</tr>
+<tr>
+<td>:r [filename]</td>
+<td>在编辑的数据中，读入另一个档案的数据。亦即将 『filename』 这个档案内容加到游标所在行后面</td>
+</tr>
+<tr>
+<td>:n1,n2 w [filename]</td>
+<td>将 n1 到 n2 的内容储存成 filename 这个档案。</td>
+</tr>
+<tr>
+<td>:! command</td>
+<td>暂时离开 vi 到指令行模式下执行 command 的显示结果！例如『:! ls /home』即可在 vi 当中察看 /home 底下以 ls 输出的档案信息！</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>vim 环境的变更</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:set nu</td>
+<td>显示行号，设定之后，会在每一行的前缀显示该行的行号</td>
+</tr>
+<tr>
+<td>:set nonu</td>
+<td>与 set nu 相反，为取消行号！</td>
+</tr>
+</tbody>
+</table>
+<h1 id="VIM的分屏功能"><a href="#VIM的分屏功能" class="headerlink" title="VIM的分屏功能"></a>VIM的分屏功能</h1><h2 id="分屏启动Vim"><a href="#分屏启动Vim" class="headerlink" title="分屏启动Vim"></a>分屏启动Vim</h2><p>使用大写的O参数来垂直分屏:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim -On file1 file2 ...</span><br></pre></td></tr></table></figure>
+<p>使用小写的o参数来水平分屏:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim -on file1 file2 ...</span><br></pre></td></tr></table></figure>
+<p>注释: n是数字，表示分成几个屏.</p>
+<h2 id="关闭分屏"><a href="#关闭分屏" class="headerlink" title="关闭分屏"></a>关闭分屏</h2><p>关闭当前窗口:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+W c</span><br></pre></td></tr></table></figure>
+<p>关闭当前窗口，如果只剩最后一个了，则退出Vim:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+W q</span><br></pre></td></tr></table></figure>
+<h2 id="分屏"><a href="#分屏" class="headerlink" title="分屏"></a>分屏</h2><p>上下分割当前打开的文件:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+W s</span><br></pre></td></tr></table></figure>
+<p>上下分割，并打开一个新的文件:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:sp filename</span><br></pre></td></tr></table></figure>
+<p>左右分割当前打开的文件:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+W v</span><br></pre></td></tr></table></figure>
+<p>左右分割，并打开一个新的文件:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:vsp filename</span><br></pre></td></tr></table></figure>
+<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p>Vi中的光标键是h, j, k, l，要在各个屏间切换，只需要先按一下Ctrl+W.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+W l <span class="comment"># 把光标移到右边的屏</span></span><br><span class="line">Ctrl+W h <span class="comment"># 把光标移到左边的屏中</span></span><br><span class="line">Ctrl+W k <span class="comment"># 把光标移到上边的屏中</span></span><br><span class="line">Ctrl+W j <span class="comment"># 把光标移到下边的屏中</span></span><br><span class="line">Ctrl+W w <span class="comment"># 把光标移到下一个的屏中</span></span><br></pre></td></tr></table></figure>
+<h2 id="移动分屏"><a href="#移动分屏" class="headerlink" title="移动分屏"></a>移动分屏</h2><p>这个功能还是使用了Vim的光标键，只不过都是大写。当然了，如果你的分屏很乱很复杂的话，这个功能可能会出现一些非常奇怪的症状。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+W L <span class="comment"># 向右移动</span></span><br><span class="line">Ctrl+W H <span class="comment"># 向左移动</span></span><br><span class="line">Ctrl+W K <span class="comment"># 向上移动</span></span><br><span class="line">Ctrl+W J <span class="comment"># 向下移动</span></span><br></pre></td></tr></table></figure>
+<h2 id="屏幕尺寸"><a href="#屏幕尺寸" class="headerlink" title="屏幕尺寸"></a>屏幕尺寸</h2><p>下面是改变尺寸的一些操作，主要是高度，对于宽度你可以使用[Ctrl+W &lt;]或是[Ctrl+W &gt;]，但这可能需要最新的版本才支持。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+W = <span class="comment"># 让所有的屏都有一样的高度</span></span><br><span class="line">Ctrl+W + <span class="comment"># 增加高度</span></span><br><span class="line">Ctrl+W - <span class="comment"># 减少高度</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -625,7 +948,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VIM简单配置"><span class="nav-number">1.</span> <span class="nav-text">VIM简单配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VIM高级配置"><span class="nav-number">2.</span> <span class="nav-text">VIM高级配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VIM简单命令"><span class="nav-number">3.</span> <span class="nav-text">VIM简单命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VIM模式"><span class="nav-number">3.1.</span> <span class="nav-text">VIM模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一部份：一般模式可用的光标移动、复制粘贴、搜索替换"><span class="nav-number">3.2.</span> <span class="nav-text">第一部份：一般模式可用的光标移动、复制粘贴、搜索替换</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VIM简单配置"><span class="nav-number">1.</span> <span class="nav-text">VIM简单配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VIM高级配置"><span class="nav-number">2.</span> <span class="nav-text">VIM高级配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VIM简单命令"><span class="nav-number">3.</span> <span class="nav-text">VIM简单命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VIM模式"><span class="nav-number">3.1.</span> <span class="nav-text">VIM模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一部份一般模式可用的光标移动、复制粘贴、搜索替换"><span class="nav-number">3.2.</span> <span class="nav-text">第一部份一般模式可用的光标移动、复制粘贴、搜索替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二部份：一般模式切换到编辑模式的可用的按钮说明"><span class="nav-number">3.3.</span> <span class="nav-text">第二部份：一般模式切换到编辑模式的可用的按钮说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三部份：一般模式切换到指令行模式的可用的按钮说明"><span class="nav-number">3.4.</span> <span class="nav-text">第三部份：一般模式切换到指令行模式的可用的按钮说明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VIM的分屏功能"><span class="nav-number">4.</span> <span class="nav-text">VIM的分屏功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分屏启动Vim"><span class="nav-number">4.1.</span> <span class="nav-text">分屏启动Vim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭分屏"><span class="nav-number">4.2.</span> <span class="nav-text">关闭分屏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分屏"><span class="nav-number">4.3.</span> <span class="nav-text">分屏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动光标"><span class="nav-number">4.4.</span> <span class="nav-text">移动光标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动分屏"><span class="nav-number">4.5.</span> <span class="nav-text">移动分屏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕尺寸"><span class="nav-number">4.6.</span> <span class="nav-text">屏幕尺寸</span></a></li></ol></li></ol></div>
             
 
           </div>
