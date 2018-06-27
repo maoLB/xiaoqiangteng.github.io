@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="VIO背景参考 https://www.zhihu.com/question/53571648">
+<meta name="description" content="VIO背景图像特征提取算法斑点检测 - LoG与DoH斑点检测 - SIFT斑点检测 - SURF角点检测 - Harris角点角点检测 - FAST角点在实时的视频流处理中，需要对每一帧特征提取，对算法处理速度上有很高的要求，传统的SIFT,Harris等特征点提取很难满足。由此提出Fast（Features from Accelerated Segment Test），由于不涉及尺度，梯度，等">
 <meta name="keywords" content="编程,VIO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VIO教程">
 <meta property="og:url" content="http://yoursite.com/2018/06/14/VIO教程/index.html">
 <meta property="og:site_name" content="Mapstec">
-<meta property="og:description" content="VIO背景参考 https://www.zhihu.com/question/53571648">
+<meta property="og:description" content="VIO背景图像特征提取算法斑点检测 - LoG与DoH斑点检测 - SIFT斑点检测 - SURF角点检测 - Harris角点角点检测 - FAST角点在实时的视频流处理中，需要对每一帧特征提取，对算法处理速度上有很高的要求，传统的SIFT,Harris等特征点提取很难满足。由此提出Fast（Features from Accelerated Segment Test），由于不涉及尺度，梯度，等">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-14T07:00:28.000Z">
+<meta property="og:updated_time" content="2018-06-26T13:21:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VIO教程">
-<meta name="twitter:description" content="VIO背景参考 https://www.zhihu.com/question/53571648">
+<meta name="twitter:description" content="VIO背景图像特征提取算法斑点检测 - LoG与DoH斑点检测 - SIFT斑点检测 - SURF角点检测 - Harris角点角点检测 - FAST角点在实时的视频流处理中，需要对每一帧特征提取，对算法处理速度上有很高的要求，传统的SIFT,Harris等特征点提取很难满足。由此提出Fast（Features from Accelerated Segment Test），由于不涉及尺度，梯度，等">
 
 
 
@@ -407,8 +407,19 @@
       
 
       
-        <h1 id="VIO背景"><a href="#VIO背景" class="headerlink" title="VIO背景"></a>VIO背景</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+        <h1 id="VIO背景"><a href="#VIO背景" class="headerlink" title="VIO背景"></a>VIO背景</h1><h1 id="图像特征提取算法"><a href="#图像特征提取算法" class="headerlink" title="图像特征提取算法"></a>图像特征提取算法</h1><h2 id="斑点检测-LoG与DoH"><a href="#斑点检测-LoG与DoH" class="headerlink" title="斑点检测 - LoG与DoH"></a>斑点检测 - LoG与DoH</h2><h2 id="斑点检测-SIFT"><a href="#斑点检测-SIFT" class="headerlink" title="斑点检测 - SIFT"></a>斑点检测 - SIFT</h2><h2 id="斑点检测-SURF"><a href="#斑点检测-SURF" class="headerlink" title="斑点检测 - SURF"></a>斑点检测 - SURF</h2><h2 id="角点检测-Harris角点"><a href="#角点检测-Harris角点" class="headerlink" title="角点检测 - Harris角点"></a>角点检测 - Harris角点</h2><h2 id="角点检测-FAST角点"><a href="#角点检测-FAST角点" class="headerlink" title="角点检测 - FAST角点"></a>角点检测 - FAST角点</h2><p>在实时的视频流处理中，需要对每一帧特征提取，对算法处理速度上有很高的要求，传统的SIFT,Harris等特征点提取很难满足。由此提出Fast（Features from Accelerated Segment Test），由于不涉及尺度，梯度，等复杂运算，Fast检测器速度非常快。它使用一定邻域内像元的灰度值与中心点比较大小去判断是否为一个角点。但它的缺点是不具有方向性,尺度不变性。</p>
+<p>Fast角点提取步骤（以Fast-12-16为例）：</p>
+<p>1.以固定半径为圆的边上取16个像素点（图中白色框出的位置），与中心点像素值Ip做差。</p>
+<p>2.若边上存在连续的12（N&gt;12,若为Fast-9,只需要N&gt;9）个点满足  ( I(x)-I(p) )&gt;threshold 或者 ( I(x)-I(p) ) &lt; -threshold。(其中I(x)表示边上的像素值，I(p)为中心点像素值，threshold为设定的阈值。)则此点作为一个候选角点。如图上的虚线连接的位置。通常为了加速计算，直接比较1,5,9,13位置的差值，超过三个即视为一个候选点（存在连续的12个像元的必要条件），否则直接排除。</p>
+<p>3.非极大值抑制，排除不稳定角点。</p>
+<h2 id="二进制字符串特征描述子-BRIEF算法"><a href="#二进制字符串特征描述子-BRIEF算法" class="headerlink" title="二进制字符串特征描述子 - BRIEF算法"></a>二进制字符串特征描述子 - BRIEF算法</h2><h2 id="二进制字符串特征描述子-BRISK算法"><a href="#二进制字符串特征描述子-BRISK算法" class="headerlink" title="二进制字符串特征描述子 - BRISK算法"></a>二进制字符串特征描述子 - BRISK算法</h2><h2 id="ORB算法"><a href="#ORB算法" class="headerlink" title="ORB算法"></a>ORB算法</h2><h2 id="FREAK算法"><a href="#FREAK算法" class="headerlink" title="FREAK算法"></a>FREAK算法</h2><h1 id="VINS文献解读"><a href="#VINS文献解读" class="headerlink" title="VINS文献解读"></a>VINS文献解读</h1><h2 id="测量预处理"><a href="#测量预处理" class="headerlink" title="测量预处理"></a>测量预处理</h2><h3 id="视觉预处理前端"><a href="#视觉预处理前端" class="headerlink" title="视觉预处理前端"></a>视觉预处理前端</h3><p>（1）对每张新图像，使用KLT稀疏光流算法跟踪已有特征。</p>
+<p>（2）同时检测新的角点特征以维持每张图像100-300特征。其中，新的角点特征利用Good Features to track特征点检测算法，参考文献：《Good Features to track》，<a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_feature2d/py_shi_tomasi/py_shi_tomasi.html#shi-tomasi" target="_blank" rel="noopener">opencv</a>，详细讲解参考：<a href="https://blog.csdn.net/u010103202/article/details/73331440" target="_blank" rel="noopener">Good Features to track特征点检测原理与opencv（python）实现</a>。</p>
+<p>（3）检测器通过设置相邻特征最小间隔强制特征均匀分布，outlier去除后，特征投影在单位球面上（unit sphere）。Outlier通过RANSAC基础矩阵测试去除。</p>
+<p>（4）关键帧的选取原则有两个：平均视差和跟踪的特征数。当跟踪的特征数小于某个门限或者跟踪特征的平均视差超过某个门限时，插入关键帧。请记住，除了平移，旋转也会导致视差，但是纯旋转时特征无法三角定位，我们在计算视差时用IMU propagation结果补偿旋转。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a href="https://www.zhihu.com/question/53571648" target="_blank" rel="noopener">https://www.zhihu.com/question/53571648</a></li>
+<li><a href="http://baijiahao.baidu.com/s?id=1573826383552981&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">http://baijiahao.baidu.com/s?id=1573826383552981&amp;wfr=spider&amp;for=pc</a></li>
+<li><a href="https://blog.csdn.net/luoshixian099/article/details/48294967" target="_blank" rel="noopener">https://blog.csdn.net/luoshixian099/article/details/48294967</a></li>
 </ul>
 
       
@@ -457,6 +468,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/25/毕业关键流程（三方协议、户口、档案、报到证）/" rel="prev" title="毕业关键流程（三方协议、户口、档案、报到证）">
+                毕业关键流程（三方协议、户口、档案、报到证） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -533,7 +548,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -544,7 +559,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -555,7 +570,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -588,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VIO背景"><span class="nav-number">1.</span> <span class="nav-text">VIO背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VIO背景"><span class="nav-number">1.</span> <span class="nav-text">VIO背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图像特征提取算法"><span class="nav-number">2.</span> <span class="nav-text">图像特征提取算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#斑点检测-LoG与DoH"><span class="nav-number">2.1.</span> <span class="nav-text">斑点检测 - LoG与DoH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斑点检测-SIFT"><span class="nav-number">2.2.</span> <span class="nav-text">斑点检测 - SIFT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斑点检测-SURF"><span class="nav-number">2.3.</span> <span class="nav-text">斑点检测 - SURF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#角点检测-Harris角点"><span class="nav-number">2.4.</span> <span class="nav-text">角点检测 - Harris角点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#角点检测-FAST角点"><span class="nav-number">2.5.</span> <span class="nav-text">角点检测 - FAST角点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制字符串特征描述子-BRIEF算法"><span class="nav-number">2.6.</span> <span class="nav-text">二进制字符串特征描述子 - BRIEF算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制字符串特征描述子-BRISK算法"><span class="nav-number">2.7.</span> <span class="nav-text">二进制字符串特征描述子 - BRISK算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ORB算法"><span class="nav-number">2.8.</span> <span class="nav-text">ORB算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FREAK算法"><span class="nav-number">2.9.</span> <span class="nav-text">FREAK算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VINS文献解读"><span class="nav-number">3.</span> <span class="nav-text">VINS文献解读</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#测量预处理"><span class="nav-number">3.1.</span> <span class="nav-text">测量预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#视觉预处理前端"><span class="nav-number">3.1.1.</span> <span class="nav-text">视觉预处理前端</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
