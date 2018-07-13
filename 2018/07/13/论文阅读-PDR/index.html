@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p55se4hrx.bkt.clouddn.com/images/science/PDR/IONnet_01.jpeg">
 <meta property="og:image" content="http://p55se4hrx.bkt.clouddn.com/images/science/PDR/IONet_02.jpeg">
-<meta property="og:updated_time" content="2018-07-13T07:53:20.000Z">
+<meta property="og:updated_time" content="2018-07-13T07:57:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文阅读-PDR">
 <meta name="twitter:description" content="论文一、IONet: Learning to Cure the Curse of Drift in Inertial OdometryMotivation现有的基于惯性传感器的位置估计方法  不足：  累计误差无界； SINS的累计误差为指数级增加，PDR的累计误差为线性增加； PDR对于无法检测到步子的场景失效。  现有工作包括： （1） 接连惯性导航方法（Strapdown Inertial">
@@ -470,7 +470,7 @@
 <p>$$(a, w)<em>{200*6}\underrightarrow{f\</em>{\theta}}(\Delta l, \Delta \phi)_{1*2},$$</p>
 <p>其中，时间窗口为200帧，即2秒。</p>
 <p>本文采用LSTM结构来训练。损失函数定义为：</p>
-<p>$$loss=\sum||\Detal \hat{l}-\Detal l||<em>{2}^{2}+k||\Delta \hat{\phi}-\Delta \phi||\</em>{2}^{2}.$$</p>
+<p>$$loss=\sum||\Delta \hat{l}-\Delta l||<em>{2}^{2}+k||\Delta \hat{\phi}-\Delta \phi||\</em>{2}^{2}.$$</p>
 
       
     </div>
