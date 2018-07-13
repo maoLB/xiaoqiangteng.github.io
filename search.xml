@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[论文阅读-PDR]]></title>
     <url>%2F2018%2F07%2F13%2F%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-PDR%2F</url>
-    <content type="text"><![CDATA[论文一、IONet: Learning to Cure the Curse of Drift in Inertial OdometryMotivation现有的基于惯性传感器的位置估计方法 不足： 累计误差无界； SINS的累计误差为指数级增加，PDR的累计误差为线性增加； PDR对于无法检测到步子的场景失效。 现有工作包括： （1） 接连惯性导航方法（Strapdown Inertial Navigation System，SINS） 方法主要思想：双重积分来估计位置和速度。 不足：由于MEMS传感器的成本有限，其测量精度有限，导致位置和速度估计误差呈指数级增长。 （2）PDR （Pedestrian Dead Reckoning） 方法主要思想：计步、步长估计、方向估计 不足：累计误差呈线性增长，对于无法检测步子的场景失效。 本文贡献： （1）建模惯性追踪问题为序列学习问题； （2）本文提出了基于DNN的学习框架。 背景知识(1) 方位姿态更新 $$\bm{C}{b}^{n}(t)=C{b}^{n}(t-1)*\Omega(t),$$ $$L_{p*s}*3={(x_i,y_i,f_i)},$$]]></content>
+    <content type="text"><![CDATA[论文一、IONet: Learning to Cure the Curse of Drift in Inertial OdometryMotivation现有的基于惯性传感器的位置估计方法 不足： 累计误差无界； SINS的累计误差为指数级增加，PDR的累计误差为线性增加； PDR对于无法检测到步子的场景失效。 现有工作包括： （1） 接连惯性导航方法（Strapdown Inertial Navigation System，SINS） 方法主要思想：双重积分来估计位置和速度。 不足：由于MEMS传感器的成本有限，其测量精度有限，导致位置和速度估计误差呈指数级增长。 （2）PDR （Pedestrian Dead Reckoning） 方法主要思想：计步、步长估计、方向估计 不足：累计误差呈线性增长，对于无法检测步子的场景失效。 本文贡献： （1）建模惯性追踪问题为序列学习问题； （2）本文提出了基于DNN的学习框架。 背景知识(1) 方位姿态更新 公式（1）：$$C_{b}^{n}(t)=C_{b}^{n}(t-1)*\Omega(t),$$ 公式（2）：$$\sigma=w(t)dt,$$ 公式（3）：$$\Omega(t)=C_{b_{t}}\^{b_{t-1}}=I+\frac{sin(\sigma)}{\sigma}[\sigma X]+\frac{1-cos(\sigma)}{\sigma^{2}}[\sigma X]^2,$$]]></content>
       <categories>
         <category>学术</category>
         <category>PDR</category>

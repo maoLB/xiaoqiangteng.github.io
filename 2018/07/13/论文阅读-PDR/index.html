@@ -88,7 +88,7 @@
 <meta property="og:description" content="论文一、IONet: Learning to Cure the Curse of Drift in Inertial OdometryMotivation现有的基于惯性传感器的位置估计方法  不足：  累计误差无界； SINS的累计误差为指数级增加，PDR的累计误差为线性增加； PDR对于无法检测到步子的场景失效。  现有工作包括： （1） 接连惯性导航方法（Strapdown Inertial">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p55se4hrx.bkt.clouddn.com/images/science/PDR/IONnet_01.jpeg">
-<meta property="og:updated_time" content="2018-07-13T02:56:06.000Z">
+<meta property="og:updated_time" content="2018-07-13T03:24:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文阅读-PDR">
 <meta name="twitter:description" content="论文一、IONet: Learning to Cure the Curse of Drift in Inertial OdometryMotivation现有的基于惯性传感器的位置估计方法  不足：  累计误差无界； SINS的累计误差为指数级增加，PDR的累计误差为线性增加； PDR对于无法检测到步子的场景失效。  现有工作包括： （1） 接连惯性导航方法（Strapdown Inertial">
@@ -428,8 +428,9 @@
 <p>（1）建模惯性追踪问题为序列学习问题；</p>
 <p>（2）本文提出了基于DNN的学习框架。</p>
 <h2 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h2><p>(1) 方位姿态更新</p>
-<p>$$\bm{C}<em>{b}^{n}(t)=C</em>{b}^{n}(t-1)*\Omega(t),$$</p>
-<p>$$L_{p*s}*3={(x_i,y_i,f_i)},$$</p>
+<p>公式（1）：$$C_{b}^{n}(t)=C_{b}^{n}(t-1)*\Omega(t),$$</p>
+<p>公式（2）：$$\sigma=w(t)dt,$$</p>
+<p>公式（3）：$$\Omega(t)=C_{b_{t}}\^{b_{t-1}}=I+\frac{sin(\sigma)}{\sigma}[\sigma X]+\frac{1-cos(\sigma)}{\sigma^{2}}[\sigma X]^2,$$</p>
 
       
     </div>
