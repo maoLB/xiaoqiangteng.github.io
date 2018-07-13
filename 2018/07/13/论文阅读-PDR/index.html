@@ -88,7 +88,7 @@
 <meta property="og:description" content="论文一、IONet: Learning to Cure the Curse of Drift in Inertial OdometryMotivation现有的基于惯性传感器的位置估计方法  不足：  累计误差无界； SINS的累计误差为指数级增加，PDR的累计误差为线性增加； PDR对于无法检测到步子的场景失效。  现有工作包括： （1） 接连惯性导航方法（Strapdown Inertial">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p55se4hrx.bkt.clouddn.com/images/science/PDR/IONnet_01.jpeg">
-<meta property="og:updated_time" content="2018-07-13T06:31:19.000Z">
+<meta property="og:updated_time" content="2018-07-13T06:51:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文阅读-PDR">
 <meta name="twitter:description" content="论文一、IONet: Learning to Cure the Curse of Drift in Inertial OdometryMotivation现有的基于惯性传感器的位置估计方法  不足：  累计误差无界； SINS的累计误差为指数级增加，PDR的累计误差为线性增加； PDR对于无法检测到步子的场景失效。  现有工作包括： （1） 接连惯性导航方法（Strapdown Inertial">
@@ -438,10 +438,20 @@
 <p>其中，$C_{b}^{n}$为本体坐标系到导航坐标系的旋转矩阵，$\Omega(t)$为时间间隔t内的旋转变化矩阵，a和w分别表示加速度计读数和陀螺仪读数，v和L分别表示世界坐标系下的速度和位置，g是重力值。</p>
 <h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>在SINS和PDR中，惯性传感器数据并不是独立的，系统状态都是有迁前一时刻的系统状态和当前时刻的惯性传感器观测值计算得到的。因此，在给定时间窗口内，惯性传感器数据不是独立的。本文假设一个伪独立条件的存在，即给定时间窗口内，<strong>导航状态的变化是独立的</strong>。因此，本文基于此，提出了序列学习的模型来估计追踪状态。</p>
 <p>不可观测到的系统状态包括方向$C_{b}^{n}$，速度v和位置L。在传统模型中，计算公式定义如下：</p>
-<p>$$[C_{b}^{n} v L]=f([C_{b}^{n} v L]_{t-1}, [a w]_{t}).$$</p>
+<p>$$[C_{b}^{n}\ v\ L]=f([C_{b}^{n}\ v\ L]_{t-1}, [a\ w]_{t}).$$</p>
 <p>(1) 位移L</p>
 <p>为了将当前窗口的位移与前一时间窗口的位移分割开来，本文定义了位移变化量$\Delta L$，其是在时间窗口内是独立的，我们得到：</p>
 <p>$$\Delta L=\int_{t=0}^{n-1}v(t)dt.$$</p>
+<p>继续划分，位移主要由初始速度和加速度计读数计算得到，即：</p>
+<p>$$\Delta L=nv(0)dt+[(n-1)s_1+(n-2)s_2+\dots+s_{n-1}]dt^2,$$</p>
+<p>其中，</p>
+<p>$$s(t)=C_{b}^{n}(t-1)a(t)-g.$$</p>
+<p>其中，$s(t)$表示的是世界坐标系下加速度计读数的变化值。那么$\Delta L$就等于第n时刻初始速度对时间的积分加上后续时刻对加速度计的积分。又由公式（1）得：</p>
+<p>$$\Delta L=nv(0)dt+[(n-1)C_b^n(0)*a_1+(n-2)C_b^n(0)\Omega(1)*a_2+\dots+C_b^n(0)\prod_{i=1}^{n-2}*a_{n-1}]dt^2-\frac{n(n-1)}{2}gdt^2,$$</p>
+<p>进一步得到：</p>
+<p>$$\Delta L=nv(0)dt+C_b^n(0)Tdt^2-\frac{n(n-1)}{2}gdt^2,$$</p>
+<p>其中，</p>
+<p>$$T=(n-1)a_1+(n-2)\Omega(1)a_2+\dots+\prod_{i=1}^{n-2}\Omega(i)a_{n-1},$$</p>
 
       
     </div>
