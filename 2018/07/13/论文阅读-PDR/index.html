@@ -88,7 +88,7 @@
 <meta property="og:description" content="论文一、IONet: Learning to Cure the Curse of Drift in Inertial OdometryMotivation现有的基于惯性传感器的位置估计方法  不足：  累计误差无界； SINS的累计误差为指数级增加，PDR的累计误差为线性增加； PDR对于无法检测到步子的场景失效。  现有工作包括： （1） 接连惯性导航方法（Strapdown Inertial">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p55se4hrx.bkt.clouddn.com/images/science/PDR/IONnet_01.jpeg">
-<meta property="og:updated_time" content="2018-07-13T06:10:51.000Z">
+<meta property="og:updated_time" content="2018-07-13T06:14:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文阅读-PDR">
 <meta name="twitter:description" content="论文一、IONet: Learning to Cure the Curse of Drift in Inertial OdometryMotivation现有的基于惯性传感器的位置估计方法  不足：  累计误差无界； SINS的累计误差为指数级增加，PDR的累计误差为线性增加； PDR对于无法检测到步子的场景失效。  现有工作包括： （1） 接连惯性导航方法（Strapdown Inertial">
@@ -435,6 +435,7 @@
 <p>$$v(t)=v(t-1)+((C_{b}^{n}(t-1))*a(t)-g_{n})dt,$$</p>
 <p>(3) 位置更新</p>
 <p>$$L(t)=L(t-1)+v(t-1)dt,$$</p>
+<p>其中，$C_{b}^{n}$为本体坐标系到导航坐标系的旋转矩阵，$\Omega(t)$为时间间隔t内的旋转变化矩阵，a和w分别表示加速度计读数和陀螺仪读数，v和L分别表示世界坐标系下的速度和位置，g是重力值。</p>
 
       
     </div>
