@@ -88,7 +88,7 @@
 <meta property="og:description" content="论文一、IONet: Learning to Cure the Curse of Drift in Inertial OdometryMotivation现有的基于惯性传感器的位置估计方法  不足：  累计误差无界； SINS的累计误差为指数级增加，PDR的累计误差为线性增加； PDR对于无法检测到步子的场景失效。  现有工作包括： （1） 接连惯性导航方法（Strapdown Inertial">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p55se4hrx.bkt.clouddn.com/images/science/PDR/IONnet_01.jpeg">
-<meta property="og:updated_time" content="2018-07-13T07:13:57.000Z">
+<meta property="og:updated_time" content="2018-07-13T07:16:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文阅读-PDR">
 <meta name="twitter:description" content="论文一、IONet: Learning to Cure the Curse of Drift in Inertial OdometryMotivation现有的基于惯性传感器的位置估计方法  不足：  累计误差无界； SINS的累计误差为指数级增加，PDR的累计误差为线性增加； PDR对于无法检测到步子的场景失效。  现有工作包括： （1） 接连惯性导航方法（Strapdown Inertial">
@@ -457,7 +457,7 @@
 <p>因此，水平移动距离的变化量可由初始速度、重力值、加速度计读数和加速度读数来计算得到，即：</p>
 <p>$$\Delta l=f(v^b(0),g_0^b,a_{1:n},w_{1:n}).$$</p>
 <p>此外，方向变化为$\phi$，我们得到：</p>
-<p>$$(\Delta l, \Delta \phi)=f_{\theta}(v^b(0),g_{0}^{b},\hat{a}<em>{1:n},\hat{w}</em>{1:n}),$$</p>
+<p>$$(\Delta l, \Delta \phi)=f_{\theta}(v^b(0),g_{0}^{b},\hat{a}_{1:n},\hat{w}_{1:n}),$$</p>
 <p>其中，$\hat{a}$和$\hat{w}$分别为IMU的加速度计读数和陀螺仪读数的原始值。</p>
 <p>最后，为了得到全局的位置信息，我们得到如下公式：</p>
 <p>$$[\beigin{cases}<br>x_n=x_0+\Delta l cos(\phi_0+\Delta \phi),\quad \ \<br>y_n=y_0+\Delta l sin(\phi_0+\Delta \phi),\quad \<br>\end{cases}<br>],$$</p>
