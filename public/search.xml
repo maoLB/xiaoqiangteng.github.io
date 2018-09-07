@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[test_new_mac2]]></title>
+    <url>%2F2018%2F09%2F07%2Ftest-new-mac2%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[test_new_mac]]></title>
     <url>%2F2018%2F09%2F07%2Ftest-new-mac%2F</url>
     <content type="text"><![CDATA[test_new_mac]]></content>
@@ -275,8 +280,8 @@
       </categories>
       <tags>
         <tag>编程</tag>
-        <tag>环境配置</tag>
         <tag>深度学习</tag>
+        <tag>环境配置</tag>
       </tags>
   </entry>
   <entry>
