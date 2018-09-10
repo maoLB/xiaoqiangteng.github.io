@@ -1,4 +1,18 @@
-C++回调机制教程
+---
+title: apolloScape竞赛
+date: 2018-09-09 11:48:32
+categories:
+- 编程
+- 竞赛
+tags:
+- 编程
+- 竞赛
+copyright:
+---
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 # 引言
 
@@ -73,6 +87,109 @@ public:
 private:
     CEvent *m_pEvent;
 };
+```
+
+这个类是触发方：
+
+- 将事件类作为其私有变量：用来接收 B （事件类的子类）的指针，用于实现多态方法调用
+
+- 实现了 sayHi() 方法：用来触发 B 的回复行为。可以看到在这个函数里，我们使用了事件类对象调用其抽象方法进行了向 B 的事件通知
+
+- 实现了 setEvent() 方法：用来传递 B 的指针，将其赋值给事件类的指针（父类指针），方便在 sayHi() 方法中多态调用回调方法
+
+接下来，我们需要实现 B 类，也就是驱使方：
+
+```C++
+// person B class , implement the event function
+class B : CEvent {
+public:
+    void sayHi() {
+        cout << "B: hello A" << endl;
+    }
+    void hiReply() {
+        cout << "B: I'm fine, thanks, and you ?" << endl;
+    }
+};
+```
+
+B 类中，我们继承了事件类，并且实现了里面的方法。
+
+最后，让我们看看世界的主宰–主过程里干了什么：
+
+```C++
+int main()
+{
+    A a;
+    B b;
+    a.setEvent((CEvent*)&b);
+    a.sayHi();
+    system("pause");
+    return 0;
+}
+```
+
+可以看到，主过程里我们干了这几件事：
+
+绑定事件关系：将 b 的指针（事件类子类）传递给了 a 的私有变量 m_pEvent（事件类父类），具有了多态调用的必要条件；这里需要注意的是我们子类向父类的强制转换的写法 (CEvent*)&b，不这么写的话，编译器会报错；想要详细了解 C++ 中父类和子类的转换的可以点击这里 C++中子类和父类之间的相互转化，这篇博客质量还是可以的
+
+触发事件：让 a 向 b 打招呼
+
+让我们运行下这个程序，看看运行结果：
+
+```C++
+A: hello B
+B: I am fine.
+```
+
+# 总结
+
+```C++
+#include <iostream>
+#include <cstdlib>
+
+using std::cout;
+using std::endl;
+
+// event class
+class CEvent {
+public:
+	virtual void hiReply() = 0;
+};
+
+// person A class , call an event
+class A {
+public:
+	A() : m_pEvent(NULL) {}
+	void sayHi() {
+		cout << "A: hello B" << endl;
+		if (nullptr != m_pEvent) {
+			m_pEvent->hiReply();
+		}
+	}
+	void setEvent(CEvent *event) {
+		m_pEvent = event;
+	}
+private:
+	CEvent *m_pEvent;
+};
+
+// person B class , implement the event function
+class B : CEvent {
+public:
+	void hiReply() {
+		cout << "B: I'm fine, thanks, and you ?" << endl;
+	}
+};
+
+int main()
+{
+	A a;
+	B b;
+	a.setEvent((CEvent*)&b);
+	a.sayHi();
+	system("pause");
+	return 0;
+}
 ```
 
 # 参考
